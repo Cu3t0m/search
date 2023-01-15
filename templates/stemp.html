@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Results</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: white;
+        }
+        tr:nth-child(odd) {
+            background-color: lightgrey;
+        }
+        /* Add a background color to the code block */
+.epre {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Style the text inside the code block */
+code {
+    font-family: "Source Code Pro", monospace;
+    font-size: 1em;
+    color: #555;
+}
+
+    </style>
+      <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Link</th>
+            <th>Description</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.title }}</td>
+            <td><a href="{{ result.link }}">{{ result.link }}</a></td>
+            <td>{{ result.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+              <div style="margin: 150px;"></div>
+        
+        <h1>Raw Data:</h1>
+        <pre class="prep">
+            <code>
+                {{results}}
+            </code>
+        </pre>
+  </body>
+</html>
